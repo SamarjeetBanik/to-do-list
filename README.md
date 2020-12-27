@@ -11,3 +11,6 @@ A simple and interactive "to-do list" using HTML, CSS and JavaScript.
 * HTML
 * CSS
 * JavaScript
+
+### App demo (Only desktop view)
+https://samarjeetbanik.github.io/to-do-list/
