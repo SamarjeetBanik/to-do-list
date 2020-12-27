@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <title>To-Do List</title>
+  </head>
+  <body>
+
+    <div class="header">
+      <h2 style="margin:10px">To-Do List</h2>
+      <input type="text" id="writespace" placeholder="Write down a task to do...">
+      <span onclick="newElement()" class="addBtn">Add</span>
+    </div>
+
+    <ul id="list">
+      <li class="checked">Attend online classes</li>
+      <li>Practice the codes</li>
+      <li>Complete all pending assignments</li>
+    </ul>
+    <center>
+      <button type="button" id="clear-list" onclick="removeAll()">Clear List</button>
+    </center>
+
+    <script type="text/javascript" src="script.js"></script>
+
+  </body>
+</html>
