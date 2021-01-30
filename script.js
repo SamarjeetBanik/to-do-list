@@ -50,6 +50,15 @@ function newElement() {
   }
 }
 
+var input = document.getElementById("writespace");
+input.addEventListener("keyup", function(event) {
+  if(event.keyCode === 13) {
+    event.preventDefault();
+    document.getElementById("btn").click();
+    /* console.log("Enter key pressed"); */
+  } 
+})
+
 function removeAll(){
   var lst = document.getElementsByTagName("ul");
     lst[0].innerHTML = "";
