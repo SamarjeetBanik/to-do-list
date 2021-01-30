@@ -98,7 +98,6 @@ input {
     font-size: 16px;
     cursor: pointer;
     transition: 0.3s;
-    border-radius: 0;
 }
 
 .addBtn:hover {
@@ -120,4 +119,42 @@ input {
 #clear-list:hover{
     background-color: #3632b9;
     color: white;
+}
+
+@media screen and (max-width: 430px)
+{
+    input {
+        margin-right: 0;
+        margin-bottom: 20px;
+        width: 100%;
+        font-size: 14px;
+    }
+    
+    .addBtn {
+        margin-left: 130px;
+        font-size: 14px;
+    }
+
+    ul li {
+        font-size: 12px;
+    }
+
+    #clear-list{
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+@media screen and (max-width: 380px)
+{
+    .addBtn {
+        margin-left: 110px;
+        font-size: 14px;
+    }
+}
+@media screen and (max-width: 325px)
+{
+    .addBtn {
+        margin-left: 88px;
+        font-size: 14px;
+    }
 }
