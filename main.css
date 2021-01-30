@@ -67,7 +67,7 @@ ul li.checked::before {
 }
 
 .header {
-    background-color: #de1f1f;
+    background-color: #3632b9;
     padding: 30px 40px;
     color: white;
     text-align: center;
@@ -118,6 +118,6 @@ input {
 }
 
 #clear-list:hover{
-    background-color: #ce0d0d;
+    background-color: #3632b9;
     color: white;
 }
