@@ -20,11 +20,6 @@ ul li {
     background: #eee;
     font-size: 18px;
     transition: 0.2s;
-
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
 }
 
 ul li:nth-child(odd) {
@@ -80,7 +75,6 @@ ul li.checked::before {
 }
 
 input {
-    margin: 0;
     border: none;
     width: 75%;
     padding: 10px;
