@@ -8,15 +8,13 @@ input.addEventListener("keyup", function(event) {
     AddTask(input.value)
     document.getElementById("writespace").value = "";
     /* console.log("Enter key pressed"); */
-  } 
+  }
 })
-console.log("reached")
-document.getElementById("btn").addEventListener("click", function(event) {
- 
 
+console.log("reached")
+
+document.getElementById("btn").addEventListener("click", function(event) {
     AddTask(input.value)
     document.getElementById("writespace").value = "";
     /* console.log("Enter key pressed"); */
-  
 })
-
