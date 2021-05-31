@@ -9,21 +9,26 @@
   <body>
 
     <div class="header">
+      <h3 style="margin-bottom:15px">Hello,&nbsp; <u id="username">Guest </u></h3>
       <h2 style="margin:10px">To-Do List</h2>
       <input type="text" id="writespace" placeholder="Write down a task to do...">
-      <button onclick="newElement()" class="addBtn" id="btn">Add</button>
+      <button  class="addBtn" id="btn"  >Add</button>
     </div>
 
     <ul id="list">
-      <li class="checked">Attend online classes</li>
+      <!-- <li class="checked">Attend online classes</li>
       <li>Practice the codes</li>
-      <li>Complete all pending assignments</li>
+      <li>Complete all pending assignments</li> -->
     </ul>
     <center>
-      <button type="button" id="clear-list" onclick="removeAll()">Clear List</button>
+      <button type="button" id="clear-list" onclick="removeAllTasks()">Clear List</button>
     </center>
 
     <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="cookies.js"></script>
+<script>
+  loadname()
+</script>
 
   </body>
 </html>
