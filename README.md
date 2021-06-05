@@ -1,5 +1,5 @@
 # to-do-list
-A simple and interactive "to-do list" using HTML, CSS and JavaScript.
+A simple and interactive "to-do list" using HTML, CSS and JavaScript. <i>New update</i>: Cookies enabled! Your data is now saved safely in your browser.
 
 ### Features
 * Add new task
@@ -12,5 +12,9 @@ A simple and interactive "to-do list" using HTML, CSS and JavaScript.
 * CSS
 * JavaScript
 
-### App demo (Only desktop view)
+### App demo:
 https://samarjeetbanik.github.io/to-do-list/
+
+#### If you really liked the project, then don't forget to 🌟 this repo!😃
+
+# Thank You!!!
