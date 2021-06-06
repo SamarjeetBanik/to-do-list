@@ -6,10 +6,24 @@ input.addEventListener("keyup", (event) => {
     // document.getElementById("btn").click();
 
     AddTask(input.value)
+    Swal.fire({
+      toast: true,
+      icon: "success",
+      title: "item added successfully!",
+      position: 'top',
+      showConfirmButton: false,
+      timer: 1500,
+      timerProgressBar: true
+    })
     document.getElementById("writespace").value = "";
     /* console.log("Enter key pressed"); */
   } else if(event.keyCode === 13 && input.value === "") {
-    alert("Please enter something to proceed")
+    // alert("Please enter something to proceed")
+    Swal.fire({
+      icon: "error",
+      title: "Please enter something to proceed!",
+      position: "top"
+    })
   }
 })
 
@@ -17,7 +31,12 @@ console.log("reached")
 
 document.getElementById("btn").addEventListener("click", (event) => {
     if(input.value === "") {
-      alert("Please enter something to proceed")
+      // alert("Please enter something to proceed")
+      Swal.fire({
+        icon: "error",
+        title: "Please enter something to proceed!",
+        position: "top"
+      })
     } else {
       AddTask(input.value)
       document.getElementById("writespace").value = "";
