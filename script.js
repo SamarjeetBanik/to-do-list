@@ -39,6 +39,15 @@ document.getElementById("btn").addEventListener("click", (event) => {
       })
     } else {
       AddTask(input.value)
+      Swal.fire({
+        toast: true,
+        icon: "success",
+        title: "item added successfully!",
+        position: 'top',
+        showConfirmButton: false,
+        timer: 1500,
+        timerProgressBar: true
+      })
       document.getElementById("writespace").value = "";
       /* console.log("Enter key pressed"); */
     }
