@@ -120,13 +120,27 @@ function removeAllTasks() {
     updateCookies([])
 }
 
-function loadname() {
+async function loadname() {
     const name_variable_name = "Name"
     if(document.cookie.indexOf(name_variable_name) == -1) {
-        var name = window.prompt("Enter your name!")
+        // var name = window.prompt("Enter your name!")
+        var { value: name } = await Swal.fire({
+            title: 'Enter your Name!',
+            position: 'top',
+            input: 'text',
+            inputValidator: (value) => {
+              if (!value) {
+                return 'You need to enter your name!'
+              }
+            }
+        })
         if(name) {
             document.cookie = name_variable_name + "=" + name.toString() + ";"
             document.getElementById("username").innerHTML = getName()
+            Swal.fire({
+                icon: "success",
+                title: `Hello, ${name}`
+            })
             updateUI()
         }
         else {
@@ -135,6 +149,15 @@ function loadname() {
     }
     else{
         document.getElementById("username").innerHTML = getName()
+        Swal.fire({
+            toast: true,
+            icon: "success",
+            title: `Welcome back ${getName()}!`,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true
+        })
         updateUI()
     }
 }
