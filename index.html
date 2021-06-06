@@ -4,10 +4,13 @@
   	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="main.css">
     <link rel="icon" href="logo.png" type="image/x-icon">
+    <!-- included sweetalert2 CDNs --> 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css">
     <title>To-Do List</title>
   </head>
   <body>
-
     <div class="header">
       <h3 style="margin-bottom:15px">Hello,&nbsp; <u id="username">Guest </u></h3>
       <h2 style="margin:10px">To-Do List</h2>
@@ -26,9 +29,8 @@
 
     <script type="text/javascript" src="script.js"></script>
     <script type="text/javascript" src="cookies.js"></script>
-<script>
-  loadname()
-</script>
-
+    <script>
+      loadname()
+    </script>
   </body>
 </html>
