@@ -100,6 +100,15 @@ function removeTask(id) {
             }
         }
         updateUI();
+        Swal.fire({
+            toast: true,
+            icon: "success",
+            title: "item deleted successfully!",
+            position: 'top',
+            showConfirmButton: false,
+            timer: 1500,
+            timerProgressBar: true
+        })
     }
 }
 
@@ -118,6 +127,15 @@ function toggleTask(id) {
 
 function removeAllTasks() {
     updateCookies([])
+    Swal.fire({
+        toast: true,
+        icon: "success",
+        title: "List cleared!",
+        position: 'top',
+        showConfirmButton: false,
+        timer: 1500,
+        timerProgressBar: true
+    })
 }
 
 async function loadname() {
