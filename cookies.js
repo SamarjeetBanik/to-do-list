@@ -69,7 +69,7 @@ function AddTask(title) {
 
 function countTasks() {
     if(document.cookie.indexOf('Tasks') == -1) {
-        return { total:0, completed:0, pending:0 }
+        return { total: 0, completed: 0, pending: 0 }
     }
     else {
         const tasks = getCookies()
@@ -85,7 +85,7 @@ function countTasks() {
                 pending++;
             }
         })  
-        return { total:total,completed:completed,pending:pending }
+        return { total: total, completed: completed, pending: pending }
     }
 }
 
@@ -126,16 +126,28 @@ function toggleTask(id) {
 }
 
 function removeAllTasks() {
-    updateCookies([])
-    Swal.fire({
-        toast: true,
-        icon: "success",
-        title: "List cleared!",
-        position: 'top',
-        showConfirmButton: false,
-        timer: 1500,
-        timerProgressBar: true
-    })
+    if(countTasks().total == 0) {
+        Swal.fire({
+            toast: true,
+            icon: "info",
+            title: "No items yet!",
+            position: 'top',
+            showConfirmButton: false,
+            timer: 1500,
+            timerProgressBar: true
+        })
+    } else {
+        updateCookies([])
+        Swal.fire({
+            toast: true,
+            icon: "success",
+            title: "List cleared!",
+            position: 'top',
+            showConfirmButton: false,
+            timer: 1500,
+            timerProgressBar: true
+        })
+    }
 }
 
 async function loadname() {
