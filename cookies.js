@@ -150,8 +150,9 @@ function removeAllTasks() {
     }
 }
 
+const name_variable_name = "Name"
+
 async function loadname() {
-    const name_variable_name = "Name"
     if(document.cookie.indexOf(name_variable_name) == -1) {
         // var name = window.prompt("Enter your name!")
         var { value: name } = await Swal.fire({
@@ -183,6 +184,35 @@ async function loadname() {
             toast: true,
             icon: "success",
             title: `Welcome back ${getName()}!`,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true
+        })
+        updateUI()
+    }
+}
+
+async function updatename() {
+    var { value: newName } = await Swal.fire({
+        title: 'Update your Name!',
+        position: 'top',
+        showCancelButton: true,
+        input: 'text',
+        inputValidator: (value) => {
+          if (!value) {
+            return 'You need to enter your name!'
+          }
+        }
+    })
+    if(newName) {
+        document.cookie = "Name=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
+        document.cookie = name_variable_name + "=" + newName.toString() + ";"
+        document.getElementById("username").innerHTML = getName()
+        Swal.fire({
+            toast: true,
+            icon: "success",
+            title: "Username updated succesfully!",
             position: 'top-end',
             showConfirmButton: false,
             timer: 3000,
