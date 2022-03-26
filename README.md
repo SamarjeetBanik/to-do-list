@@ -6,11 +6,13 @@ A simple and interactive "to-do list" using HTML, CSS and JavaScript. <i>New upd
 * Mark task as completed / uncompleted
 * Delete single task
 * Delete all tasks
+* Update username
 
 ### Technologies used:
 * HTML
 * CSS
 * JavaScript
+* SweetAlert2
 
 ### App demo:
 https://samarjeetbanik.github.io/to-do-list/
