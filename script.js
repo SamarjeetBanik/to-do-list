@@ -27,7 +27,7 @@ input.addEventListener("keyup", (event) => {
   }
 })
 
-console.log("reached")
+/* console.log("reached") */
 
 document.getElementById("btn").addEventListener("click", (event) => {
     if(input.value === "") {
