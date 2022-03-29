@@ -15,7 +15,7 @@ function updateUI()
             document.getElementById("list").appendChild(li);
             li.addEventListener('click', function(ev) {
                 if (ev.target.tagName === 'LI') {
-                    console.log("triggering",task.id)
+                    // console.log("triggering",task.id)
                     toggleTask(task.id)
                 }
             }, false);
@@ -46,7 +46,14 @@ function getCookies() {
     }
     else {
         cookiearray = document.cookie.split(';')
-        const tasks = JSON.parse(cookiearray[1].split('=')[1]);
+        // const tasks = JSON.parse(cookiearray[1].split('=')[1]);
+        for(var i = 0; i < cookiearray.length; i++)
+        {
+            if(cookiearray[i].split('=')[0].trim() == "Tasks") {
+                var tasks = JSON.parse(cookiearray[i].split('=')[1])
+                break
+            }
+        }
         return tasks
     }
 }
@@ -218,14 +225,20 @@ async function updatename() {
             timer: 3000,
             timerProgressBar: true
         })
-        updateUI()
     }
 }
 
 function getName() {
     if(document.cookie.indexOf("Name") != -1) {
         cookiearray = document.cookie.split(';')
-        const name = cookiearray[0].split('=')[1];
+        // const name = cookiearray[0].split('=')[1];
+        for(var i = 0; i < cookiearray.length; i++)
+        {
+            if(cookiearray[i].split('=')[0].trim() == "Name") {
+                var name = cookiearray[i].split('=')[1]
+                break
+            }
+        }
         return name;
     }
 }
