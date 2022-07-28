@@ -4,18 +4,30 @@ input.addEventListener("keyup", (event) => {
   if(event.keyCode === 13 && input.value !== "") {
     // event.preventDefault();
     // document.getElementById("btn").click();
-
-    AddTask(input.value)
-    Swal.fire({
-      toast: true,
-      icon: "success",
-      title: "item added successfully!",
-      position: 'top',
-      showConfirmButton: false,
-      timer: 1500,
-      timerProgressBar: true
-    })
-    document.getElementById("writespace").value = "";
+    if(input.value !== ";") {
+      AddTask(input.value)
+      Swal.fire({
+        toast: true,
+        icon: "success",
+        title: "item added successfully!",
+        position: 'top',
+        showConfirmButton: false,
+        timer: 1500,
+        timerProgressBar: true
+      })
+      document.getElementById("writespace").value = "";
+    } else {
+      Swal.fire({
+        toast: true,
+        icon: "error",
+        title: "Illegal input",
+        position: 'top',
+        showConfirmButton: false,
+        timer: 1500,
+        timerProgressBar: true
+      })
+      document.getElementById("writespace").value = "";
+    }
     /* console.log("Enter key pressed"); */
   } else if(event.keyCode === 13 && input.value === "") {
     // alert("Please enter something to proceed")
