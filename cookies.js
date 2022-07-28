@@ -172,6 +172,7 @@ async function loadname() {
               }
             }
         })
+        name = formatName(name)
         if(name) {
             document.cookie = name_variable_name + "=" + name.toString() + ";"
             document.getElementById("username").innerHTML = getName()
@@ -212,6 +213,7 @@ async function updatename() {
           }
         }
     })
+    newName = formatName(newName)
     if(newName) {
         document.cookie = "Name=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
         document.cookie = name_variable_name + "=" + newName.toString() + ";"
@@ -226,6 +228,16 @@ async function updatename() {
             timerProgressBar: true
         })
     }
+}
+
+function formatName(name) {
+    const words = name.split(" ");
+
+    for (let i = 0; i < words.length; i++) {
+        words[i] = words[i][0].toUpperCase() + words[i].substr(1);
+    }
+
+    return words.join(" ");
 }
 
 function getName() {
