@@ -5,13 +5,13 @@ function updateUI()
 
         document.getElementById("list").innerHTML=""
         tasks.map(task => {
-            //task create
+            // task create
             var li = document.createElement("li");
             var value = task.title;
             var t = document.createTextNode(value);
             li.appendChild(t);
 
-            //update ui list
+            // update ui list
             document.getElementById("list").appendChild(li);
             li.addEventListener('click', function(ev) {
                 if (ev.target.tagName === 'LI') {
@@ -26,13 +26,21 @@ function updateUI()
             //     updateTask(task.id)
             // }
             
-            //task close button
-            var span = document.createElement("SPAN");
-            var txt = document.createTextNode("\u00D7");
-            span.className = "close";
-            span.onclick = () => { removeTask(task.id) }
-            span.appendChild(txt);
-            li.appendChild(span);
+            // edit close button
+            var span1 = document.createElement("SPAN");
+            var txt1 = document.createTextNode("✎");
+            span1.className = "edit";
+            span1.onclick = () => { editTask(task.id) }
+            span1.appendChild(txt1);
+            li.appendChild(span1);
+
+            // task close button
+            var span2 = document.createElement("SPAN");
+            var txt2 = document.createTextNode("\u00D7");
+            span2.className = "close";
+            span2.onclick = () => { removeTask(task.id) }
+            span2.appendChild(txt2);
+            li.appendChild(span2);
         })
     }
     else {
@@ -96,9 +104,46 @@ function countTasks() {
     }
 }
 
+async function editTask(id) {
+    if(countTasks().total > 0) {
+        const tasks = getCookies()
+        for(var i = 0; i < tasks.length; i++) {
+            if(tasks[i].id == id) {
+                console.log(tasks[i])
+                var title = tasks[i].title
+                await Swal.fire({
+                    title: `Update "${title}"`,
+                    position: 'center',
+                    showCancelButton: true,
+                    input: 'text',
+                    inputValidator: (value) => {
+                        if (!value) {
+                            return 'Blank input not accepted!'
+                        }
+                    },
+                    preConfirm: (updateTask) => {
+                        tasks[i].title = updateTask
+                        updateCookies(tasks)
+                        Swal.fire({
+                            toast: true,
+                            icon: "success",
+                            title: "item updated successfully!",
+                            position: 'top',
+                            showConfirmButton: false,
+                            timer: 1500,
+                            timerProgressBar: true
+                        })
+                      }
+                })
+                break;
+            }
+        }
+    }
+}
+
 function removeTask(id) {
     if(countTasks().total>0) {
-        const tasks= getCookies()
+        const tasks = getCookies()
         for(var i=0; i<tasks.length; i++) {
             if(tasks[i].id == id) {
                 tasks.splice(i, 1);
@@ -162,29 +207,32 @@ const name_variable_name = "Name"
 async function loadname() {
     if(document.cookie.indexOf(name_variable_name) == -1) {
         // var name = window.prompt("Enter your name!")
-        var { value: name } = await Swal.fire({
+        await Swal.fire({
             title: 'Enter your Name!',
             position: 'top',
             input: 'text',
             inputValidator: (value) => {
-              if (!value) {
-                return 'You need to enter your name!'
-              }
-            }
+                if (!value) {
+                    return 'You need to enter your name!'
+                }
+            },
+            preConfirm: (name) => {
+                name = formatName(name)
+                if(name) {
+                    document.cookie = name_variable_name + "=" + name.toString() + ";"
+                    document.getElementById("username").innerHTML = getName()
+                    Swal.fire({
+                        icon: "success",
+                        title: `Hello, ${name}`
+                    })
+                    updateUI()
+                }
+                else {
+                    loadname()
+                }
+            },
+            allowOutsideClick: () => Swal.isLoading()
         })
-        name = formatName(name)
-        if(name) {
-            document.cookie = name_variable_name + "=" + name.toString() + ";"
-            document.getElementById("username").innerHTML = getName()
-            Swal.fire({
-                icon: "success",
-                title: `Hello, ${name}`
-            })
-            updateUI()
-        }
-        else {
-            loadname()
-        }
     }
     else{
         document.getElementById("username").innerHTML = getName()
@@ -202,32 +250,34 @@ async function loadname() {
 }
 
 async function updatename() {
-    var { value: newName } = await Swal.fire({
+    await Swal.fire({
         title: 'Update your Name!',
         position: 'top',
         showCancelButton: true,
         input: 'text',
         inputValidator: (value) => {
-          if (!value) {
-            return 'You need to enter your name!'
-          }
+            if (!value) {
+                return 'You need to enter your name!'
+            }
+        },
+        preConfirm: (newName) => {
+            newName = formatName(newName)
+            if(newName) {
+                document.cookie = "Name=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
+                document.cookie = name_variable_name + "=" + newName.toString() + ";"
+                document.getElementById("username").innerHTML = getName()
+                Swal.fire({
+                    toast: true,
+                    icon: "success",
+                    title: "Username updated succesfully!",
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true
+                })
+            }
         }
     })
-    newName = formatName(newName)
-    if(newName) {
-        document.cookie = "Name=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
-        document.cookie = name_variable_name + "=" + newName.toString() + ";"
-        document.getElementById("username").innerHTML = getName()
-        Swal.fire({
-            toast: true,
-            icon: "success",
-            title: "Username updated succesfully!",
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true
-        })
-    }
 }
 
 function formatName(name) {
