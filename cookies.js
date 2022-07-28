@@ -109,7 +109,7 @@ async function editTask(id) {
         const tasks = getCookies()
         for(var i = 0; i < tasks.length; i++) {
             if(tasks[i].id == id) {
-                console.log(tasks[i])
+                // console.log(tasks[i])
                 var title = tasks[i].title
                 await Swal.fire({
                     title: `Update "${title}"`,
