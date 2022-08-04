@@ -1,0 +1,22 @@
+{
+  "name": "to-do-list-js",
+  "version": "1.0.0",
+  "description": "A simple to-do list built purely using html, css and js",
+  "main": "cookies.js",
+  "dependencies": {
+    "bootstrap-cookie-alert": "^1.2.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SamarjeetBanik/to-do-list.git"
+  },
+  "author": "samarjeetbanik",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SamarjeetBanik/to-do-list/issues"
+  },
+  "homepage": "https://github.com/SamarjeetBanik/to-do-list#readme"
+}
