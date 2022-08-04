@@ -250,15 +250,6 @@ async function loadname() {
 }
 
 async function deleteAllCookies() {
-     /*var cookies = document.cookie.split(";");
-
-    for (var i = 0; i < cookies.length; i++) {
-        var cookie = cookies[i];
-        var eqPos = cookie.indexOf("=");
-        var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
-        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
-    } */
-
     await Swal.fire({
         title: 'Are you sure?',
         text: "All the info related to this user will be deleted. You won't be able to revert this!",
@@ -269,7 +260,7 @@ async function deleteAllCookies() {
         confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
         if (result.isConfirmed) {
-            document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/to-do-list"); });
+            document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/,"=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/"); });
 
             window.location.reload()
         }
@@ -290,7 +281,7 @@ async function updatename() {
         preConfirm: (newName) => {
             newName = formatName(newName)
             if(newName) {
-                document.cookie = "Name=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/to-do-list;"
+                document.cookie = "Name=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/"
                 document.cookie = name_variable_name + "=" + newName.toString() + ";"
                 document.getElementById("username").innerHTML = getName()
                 Swal.fire({
