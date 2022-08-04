@@ -269,7 +269,7 @@ async function deleteAllCookies() {
         confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
         if (result.isConfirmed) {
-            document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/"); });
+            document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/to-do-list"); });
 
             window.location.reload()
         }
@@ -290,7 +290,7 @@ async function updatename() {
         preConfirm: (newName) => {
             newName = formatName(newName)
             if(newName) {
-                document.cookie = "Name=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
+                document.cookie = "Name=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/to-do-list;"
                 document.cookie = name_variable_name + "=" + newName.toString() + ";"
                 document.getElementById("username").innerHTML = getName()
                 Swal.fire({
