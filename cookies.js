@@ -250,11 +250,10 @@ async function loadname() {
 }
 
 function deleteAllCookies() {
-    // document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/,"=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/"); });
     document.cookie = "Name=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/"
     document.cookie = "Tasks=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/"
     document.cookie = "acceptCookies=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/"
-    window.location.reload()
+    loadname()
 }
 
 async function updatename() {
