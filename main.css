@@ -7,7 +7,7 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-ul {
+ul#list {
     margin: 0;
     padding: 0;
     min-height: 100%;
@@ -17,7 +17,7 @@ ul {
 ul li {
     cursor: pointer;
     position: relative;
-    padding: 12px 8px 12px 40px;
+    padding: 12px 8px 12px 38px;
     list-style-type: none;
     background: #eee;
     font-size: 18px;
@@ -44,7 +44,7 @@ ul li.checked::before {
     border-color: #fff;
     border-style: solid;
     border-width: 0 2px 2px 0;
-    top: 10px;
+    top: 15px;
     left: 16px;
     transform: rotate(45deg);
     height: 15px;
@@ -67,7 +67,7 @@ ul li.checked::before {
     position: absolute;
     right: 40px;
     top: 0;
-    padding: 12px 14px 10px 14px;
+    padding: 12px 14px 12px 14px;
 }
   
 .edit:hover {
@@ -130,21 +130,21 @@ input {
     color: white;
 }
 
-footer {
+#foot {
     background-color: #3632b9;
     color: #fff;
     width: 100%;
     position: fixed;
     bottom: 0;
-    padding: 10px;
-    font-size: 17px;
+    padding: 5px;
+    font-size: 15px;
 }
 
 .push {
     height: 80px;
 }
 
-footer a {
+#foot a {
     text-decoration: none;
     color: #fff;
 }
@@ -157,20 +157,26 @@ footer a {
         width: 100%;
         font-size: 14px;
     }
+
     
     .addBtn {
         margin-left: 130px;
         font-size: 14px;
     }
-
+    
     ul li {
         font-size: 12px;
+    }
+    
+    ul li.checked::before {
+        top: 10px;
     }
 
     #clear-list{
         padding: 10px;
         font-size: 14px;
     }
+
     footer {
         font-size: 14px;
     }
@@ -181,11 +187,19 @@ footer a {
         margin-left: 110px;
         font-size: 14px;
     }
+
+    ul li.checked::before {
+        top: 11px;
+    }
 }
 @media screen and (max-width: 325px)
 {
     .addBtn {
         margin-left: 88px;
         font-size: 14px;
+    }
+
+    ul li.checked::before {
+        top: 11px;
     }
 }
