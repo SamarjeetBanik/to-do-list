@@ -4,12 +4,16 @@
   	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="main.css">
     <link rel="icon" href="logo.png" type="image/x-icon">
-    <!-- included Fomt Awesome CDN --> 
+    <!-- Bootstrap4 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- included Font Awesome CDN --> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <!-- included sweetalert2 CDNs --> 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css">
+    <!-- Bootstrap-Cookie-Alert -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.css">
     <title>To-Do List</title>
   </head>
   <body>
@@ -29,12 +33,20 @@
       <button type="button" id="clear-list" onclick="removeAllTasks()">Clear List</button>
     </center>
     <div class="push"></div>
-    <footer>
+    <footer id="foot">
       <center>
         &copy; <a href="https://github.com/SamarjeetBanik">Samarjeet</a> | <a href="https://github.com/MadhabaPatra">Madhaba</a> | <a href="https://github.com/SamarjeetBanik/to-do-list"><i class="fab fa-github"></i></a> | 2020
       </center>
     </footer>
+    <div class="alert text-center cookiealert" role="alert">
+      <b>Do you like cookies?</b> &#x1F36A; We use cookies to ensure you get the best experience on our website. <a href="https://cookiesandyou.com/" target="_blank">Learn more</a>
+  
+      <button type="button" class="btn btn-primary btn-sm acceptcookies">
+          I agree
+      </button>
+    </div>
 
+    <script src="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.js"></script>
     <script type="text/javascript" src="script.js"></script>
     <script type="text/javascript" src="cookies.js"></script>
     <script>
