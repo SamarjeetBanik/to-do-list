@@ -249,22 +249,12 @@ async function loadname() {
     }
 }
 
-async function deleteAllCookies() {
-    await Swal.fire({
-        title: 'Are you sure?',
-        text: "All the info related to this user will be deleted. You won't be able to revert this!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
-    }).then((result) => {
-        if (result.isConfirmed) {
-            document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/,"=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/"); });
-
-            window.location.reload()
-        }
-    })
+function deleteAllCookies() {
+    // document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/,"=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/"); });
+    document.cookie = "Name=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/"
+    document.cookie = "Tasks=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/"
+    document.cookie = "acceptCookies=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/"
+    window.location.reload()
 }
 
 async function updatename() {
