@@ -4,12 +4,11 @@ input.addEventListener("keyup", (event) => {
   if(event.keyCode === 13 && input.value !== "") {
     // event.preventDefault();
     // document.getElementById("btn").click();
-    if(input.value !== ";") {
-      AddTask(input.value)
+    if(input.value.includes(";")) {
       Swal.fire({
         toast: true,
-        icon: "success",
-        title: "item added successfully!",
+        icon: "error",
+        title: "Illegal input",
         position: 'top',
         showConfirmButton: false,
         timer: 1500,
@@ -17,10 +16,11 @@ input.addEventListener("keyup", (event) => {
       })
       document.getElementById("writespace").value = "";
     } else {
+      AddTask(input.value)
       Swal.fire({
         toast: true,
-        icon: "error",
-        title: "Illegal input",
+        icon: "success",
+        title: "item added successfully!",
         position: 'top',
         showConfirmButton: false,
         timer: 1500,
