@@ -3,7 +3,7 @@ function updateUI()
     if(countTasks().total>0) {
         const tasks = getCookies()
 
-        document.getElementById("list").innerHTML=""
+        document.getElementById("list").innerHTML = ""
         tasks.map(task => {
             // task create
             var li = document.createElement("li");
@@ -26,7 +26,7 @@ function updateUI()
             //     updateTask(task.id)
             // }
             
-            // edit close button
+            // edit task button
             var span1 = document.createElement("SPAN");
             var txt1 = document.createTextNode("✎");
             span1.className = "edit";
@@ -234,7 +234,7 @@ async function loadname() {
             allowOutsideClick: () => Swal.isLoading()
         })
     }
-    else{
+    else {
         document.getElementById("username").innerHTML = getName()
         Swal.fire({
             toast: true,
@@ -247,6 +247,33 @@ async function loadname() {
         })
         updateUI()
     }
+}
+
+async function deleteAllCookies() {
+    /* var cookies = document.cookie.split(";");
+
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i];
+        var eqPos = cookie.indexOf("=");
+        var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    } */
+
+    await Swal.fire({
+        title: 'Are you sure?',
+        text: "All the info related to this user will be deleted. You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
+
+            window.location.reload()
+        }
+    })
 }
 
 async function updatename() {
